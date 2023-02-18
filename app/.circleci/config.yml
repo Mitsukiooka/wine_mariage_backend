@@ -1,11 +1,39 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@3.2.1
+version: 2
 
 jobs:
-  build:
+  test:
     docker:
-      - image: cimg/ruby:3.2.1
+      - image: circleci/ruby:3.2.1-node
+        environment:
+          RAILS_ENV: test
+          DATABASE_HOST: 127.0.0.1 
+      - image: circleci/mysql:5.7
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_DATABASE: wine_mariage_backend_test
+    working_directory: ~/wine_mariage_backend
     steps:
       - checkout
-      - run: ruby --version
+      - run:
+          name: "bundle install"
+          command: bundle install --path vendor/bundle
+      # MySQLと接続できるまで待ちます
+      - run:
+          name: "waiting DB start"
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+      - run:
+          name: "initialize DB"
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:migrate
+      - run:
+          name: RSpec
+          command: bundle exec rspec
+
+
+workflows:
+  version: 2
+  workflows:
+    jobs:
+      - test
