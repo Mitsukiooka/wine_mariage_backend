@@ -3,7 +3,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/ruby:3.2.1-node
+      - image: cimg/ruby:3.2.1
         environment:
           RAILS_ENV: test
           DATABASE_HOST: 127.0.0.1 
