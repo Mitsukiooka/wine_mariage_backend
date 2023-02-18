@@ -35,7 +35,7 @@ describe WinesController, type: :request do
 
     let(:url) { '/api/wines' }
 
-    it 'creates wines' do
+    it 'creates wine' do
       request
       expect(response.status).to eq 201
     end
