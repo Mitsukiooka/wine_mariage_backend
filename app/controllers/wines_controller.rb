@@ -4,7 +4,7 @@ class WinesController < BaseController
 
   def index
     wines = Wine.all
-    render json: { wines: }, status: :ok
+    render json: wines, each_serializer: WineSerializer, status: :ok
   end
 
   def create
@@ -14,7 +14,7 @@ class WinesController < BaseController
   end
 
   def show
-    render json: { wine: @wine }, status: :ok
+    render json: @wine, serializer: WineSerializer, status: :ok, adapter: :json
   end
 
   def update

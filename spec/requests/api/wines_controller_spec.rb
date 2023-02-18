@@ -27,6 +27,7 @@ describe WinesController, type: :request do
       wine
       request
       expect(response.status).to eq 200
+      expect(JSON.parse(response.body)[0]["name"]).to match(wine.name)
     end
   end
 

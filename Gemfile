@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
+gem "active_model_serializers", require: true
 gem "bootsnap", require: false
 gem "importmap-rails"
 gem "jbuilder"
@@ -19,6 +20,9 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rspec-json_matcher'
+  gem 'rspec_junit_formatter'
+  gem 'rspec-rails'
 end
 
 group :development do
