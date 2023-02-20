@@ -1,5 +1,5 @@
 # Wine CRUD
-class WinesController < BaseController
+class Api::WinesController < Api::BaseController
   before_action :set_wine, only: [:show, :update, :destroy]
 
   def index
@@ -14,12 +14,12 @@ class WinesController < BaseController
   end
 
   def show
-    render json: @wine, serializer: WineSerializer, status: :ok, adapter: :json
+    render json: @wine, serializer: WineSerializer, status: :ok
   end
 
   def update
     @wine.update!(wine_params)
-    render json: { wine_id: @wine.id }, status: :ok
+    render json: @wine, serializer: WineSerializer, status: :ok
   end
 
   def destroy

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe WinesController, type: :request do
+describe Api::WinesController, type: :request do
   let(:wine) do
     create(:wine)
   end
@@ -39,6 +39,19 @@ describe WinesController, type: :request do
     it 'creates wine' do
       request
       expect(response.status).to eq 201
+    end
+  end
+
+  describe 'PATCH /api/wines' do
+    subject(:request) { patch url, params: }
+
+    let(:url) { "/api/wines/#{wine.id}" }
+
+    it 'updates wine' do
+      wine
+      request
+      expect(response.status).to eq 200
+      expect(JSON.parse(response.body)["kind"]).to match(params[:kind])
     end
   end
 end
