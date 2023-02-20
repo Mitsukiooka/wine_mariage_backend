@@ -17,12 +17,12 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
   gem 'rspec-json_matcher'
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 end
 
 group :development do
@@ -34,5 +34,4 @@ group :test do
   gem "factory_bot_rails"
   gem 'faker'
   gem 'pry-rails'
-  gem 'rspec-rails'
 end
