@@ -18,3 +18,9 @@ Wine.create!(
   aroma: 'ベリー系',
   score: '10'
 )
+
+Profile.create!(
+  name: 'Mickey',
+  favorite_kind: '白 シャルドネ 赤 カベルネ・ソーヴィニヨン',
+  total_number: 0
+)
