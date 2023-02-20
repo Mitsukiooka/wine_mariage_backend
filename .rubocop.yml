@@ -1,1 +1,16 @@
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - "bin/**/*"
+    - "config/application.rb"
+    - "config/environments/*"
+    - "db/**/*"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
