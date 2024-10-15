@@ -14,7 +14,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-# Wine Serializer
 class WineSerializer < ActiveModel::Serializer
   attributes :name, :kind, :country, :maker, :color, :body, :aroma, :score
 end

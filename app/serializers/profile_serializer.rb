@@ -9,7 +9,6 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #
-# Profile Serializer
 class ProfileSerializer < ActiveModel::Serializer
   attributes :name, :favorite_kind, :total_number
 end
