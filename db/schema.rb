@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_16_001539) do
   end
 
   create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.string "favorite_kind", null: false
     t.string "total_number", null: false
@@ -31,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_16_001539) do
 
   create_table "reviews", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "wine_id", null: false
-    t.bigint "profile_id", null: false
+    t.bigint "user_id", null: false
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

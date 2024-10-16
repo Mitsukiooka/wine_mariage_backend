@@ -26,6 +26,6 @@ class User < ApplicationRecord
 
   enum role: { admin: 0, web_user: 1 }
 
+  has_many :reviews
   has_one :profile
-
 end
