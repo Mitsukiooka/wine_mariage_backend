@@ -16,6 +16,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Add SSH keys
+          command: ssh-add ~/.ssh/id_rsa
+      - run:
           name: "bundle install"
           command: bundle install --path vendor/bundle
       # MySQLと接続できるまで待ちます
