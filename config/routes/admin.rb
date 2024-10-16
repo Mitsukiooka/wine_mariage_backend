@@ -1,0 +1,2 @@
+resources :wines
+resources :users
