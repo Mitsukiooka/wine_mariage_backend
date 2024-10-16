@@ -24,7 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: { "admin": 0, "web_user": 1 }
+  enum role: { admin: 0, web_user: 1 }
 
   has_one :profile
 
