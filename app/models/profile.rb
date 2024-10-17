@@ -8,7 +8,9 @@
 #  total_number  :string(255)      not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 class Profile < ApplicationRecord
+  belongs_to :user, optional: true
   has_many :reviews
 end

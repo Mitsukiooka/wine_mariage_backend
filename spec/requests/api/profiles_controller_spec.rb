@@ -7,6 +7,7 @@ describe Api::ProfilesController, type: :request do
 
   let(:params) do
     {
+      user_id: 1,
       name: 'Masumi',
       favorite_kind: 'イタリアワイン',
       total_number: 10

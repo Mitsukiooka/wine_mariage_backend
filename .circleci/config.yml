@@ -10,11 +10,14 @@ jobs:
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ROOT_PASSWORD: 'password'
           MYSQL_DATABASE: wine_mariage_backend_test
     working_directory: ~/wine_mariage_backend
     steps:
       - checkout
+      - run:
+          name: Add SSH keys
+          command: ssh-add ~/.ssh/id_rsa
       - run:
           name: "bundle install"
           command: bundle install --path vendor/bundle

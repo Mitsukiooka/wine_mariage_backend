@@ -8,6 +8,7 @@
 #  total_number  :string(255)      not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  user_id       :bigint           not null
 #
 class ProfileSerializer < ActiveModel::Serializer
   attributes :name, :favorite_kind, :total_number

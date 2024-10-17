@@ -25,7 +25,7 @@ module Api
     end
 
     def profile_params
-      params.permit([:name, :favorite_kind, :total_number])
+      params.permit([:user_id, :name, :favorite_kind, :total_number])
     end
   end
 end
