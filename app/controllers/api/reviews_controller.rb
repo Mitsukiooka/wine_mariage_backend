@@ -17,7 +17,7 @@ module Api
     private
 
     def review_params
-      params.permit([:wine_id, :profile_id, :content])
+      params.permit([:wine_id, :user_id, :content])
     end
   end
 end

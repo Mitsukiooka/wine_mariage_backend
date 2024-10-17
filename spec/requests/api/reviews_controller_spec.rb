@@ -5,10 +5,6 @@ describe Api::ReviewsController, type: :request do
     create(:wine)
   end
 
-  let(:profile) do
-    create(:profile)
-  end
-
   let(:review) do
     create(:review)
   end
@@ -16,7 +12,7 @@ describe Api::ReviewsController, type: :request do
   let(:params) do
     {
       wine_id: wine.id,
-      profile_id: profile.id,
+      user_id: review.user.id,
       content: '100点！'
     }
   end
