@@ -1,0 +1,10 @@
+- @wines.each do |wine|
+  %h1
+    = link_to wine.name, wine_path(wine)
+    %ul
+      %li
+        = wine.kind 
+      %li
+        = wine.country
+
+= link_to 'New Wine', new_wine_path 

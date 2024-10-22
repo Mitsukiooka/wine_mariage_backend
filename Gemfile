@@ -8,6 +8,7 @@ gem 'annotate'
 gem "bootsnap", require: false
 gem 'cancancan'
 gem 'devise'
+gem 'haml-rails'
 gem "importmap-rails"
 gem "jbuilder"
 gem "mysql2", "~> 0.5"

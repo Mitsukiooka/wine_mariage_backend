@@ -1,0 +1,26 @@
+= form_with model: @wine do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name
+  .form-group
+    = f.label :kind
+    = f.text_field :kind
+  .form-group
+    = f.label :country
+    = f.text_field :country
+  .form-group
+    = f.label :aroma
+    = f.text_field :aroma
+  .form-group
+    = f.label :body
+    = f.text_field :body
+  .form-group
+    = f.label :color
+    = f.text_field :color
+  .form-group
+    = f.label :maker
+    = f.text_field :maker
+  .form-group
+    = f.label :score
+    = f.number_field :score
+  = f.submit 'Save'

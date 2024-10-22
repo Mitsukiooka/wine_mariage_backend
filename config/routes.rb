@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+
   namespace :api do
     draw :api
   end
+
+  resources :wines
 end

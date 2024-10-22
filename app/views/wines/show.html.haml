@@ -1,0 +1,21 @@
+
+%h1
+  = @wine.name
+  %ul
+    %li
+      = @wine.kind 
+    %li
+      = @wine.country
+    %li
+      = @wine.aroma
+    %li
+      = @wine.body
+    %li
+      = @wine.color
+    %li
+      = @wine.maker
+    %li
+      = @wine.score
+
+= link_to 'Edit', edit_wine_path(@wine)
+= link_to 'Back', wines_path
