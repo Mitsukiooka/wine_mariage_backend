@@ -15,6 +15,7 @@ gem "puma", "~> 5.0"
 gem 'rack-cors'
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem 'rails_admin', '~> 3.0'
+gem 'seed-fu'
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
