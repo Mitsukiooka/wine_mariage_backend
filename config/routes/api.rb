@@ -1,4 +1,6 @@
-resources :wines, except: [:new, :edit]
+resources :wines, except: [:new, :edit] do
+  resources :reviews
+end
 
 resources :profiles, only: [:create] do
   collection do
@@ -7,4 +9,4 @@ resources :profiles, only: [:create] do
   end
 end
 
-resources :reviews, only: [:create, :update]
+

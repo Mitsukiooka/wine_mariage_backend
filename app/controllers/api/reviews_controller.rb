@@ -1,23 +1,42 @@
 module Api
-  # Review CRUD
-  class ReviewsController < Api::BaseController
-    def create
-      review = Review.create!(review_params)
+  class ReviewsController < ApplicationController
+    before_action :set_wine, only: [:index, :create]
+    before_action :set_review, only: [:update]
 
-      render json: { review_id: review.id }, status: :created
+    def index
+      @reviews = @wine.reviews.includes(:user)
+      render json: @reviews
+    end
+
+    def create
+      @review = @wine.reviews.build(review_params.merge(user: current_user))
+      if @review.save
+        render json: @review, status: :created
+      else
+        render json: @review.errors, status: :unprocessable_entity
+      end
     end
 
     def update
-      review = Review.find(params[:id])
-      review.update!(review_params)
-
-      render json: { review_id: review.id }, status: :ok
+      if @review.update(review_params)
+        render json: @review
+      else
+        render json: @review.errors, status: :unprocessable_entity
+      end
     end
 
     private
 
+    def set_wine
+      @wine = Wine.find(params[:wine_id])
+    end
+
+    def set_review
+      @review = Review.find(params[:id])
+    end
+
     def review_params
-      params.permit([:wine_id, :user_id, :content])
+      params.require(:review).permit(:content)
     end
   end
 end
