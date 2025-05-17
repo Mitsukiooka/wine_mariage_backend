@@ -10,59 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_16_001539) do
-  create_table "foods", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "color", null: false
-    t.string "temperature", null: false
-    t.string "taste", null: false
-    t.string "trait", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "profiles", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "name", null: false
-    t.string "favorite_kind", null: false
-    t.string "total_number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", charset: "utf8mb4", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_111938) do
+  create_table "wine_reviews", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "wine_id", null: false
-    t.bigint "user_id", null: false
-    t.text "content", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "name", default: "", null: false
-    t.integer "role", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "wines", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "kind", null: false
-    t.string "country", null: false
-    t.string "maker", null: false
     t.string "color", null: false
     t.string "body", null: false
     t.string "aroma", null: false
-    t.string "score", null: false
+    t.integer "score", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wine_id"], name: "index_wine_reviews_on_wine_id"
+  end
+
+  create_table "wine_varieties", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "wines", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "wine_variety_id", null: false
+    t.string "name", null: false
+    t.integer "kind", null: false
+    t.string "country", null: false
+    t.string "maker", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wine_variety_id"], name: "index_wines_on_wine_variety_id"
+  end
+
+  add_foreign_key "wine_reviews", "wines"
+  add_foreign_key "wines", "wine_varieties"
 end
