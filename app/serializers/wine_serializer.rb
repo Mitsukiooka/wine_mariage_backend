@@ -20,5 +20,9 @@
 #  fk_rails_...  (wine_variety_id => wine_varieties.id)
 #
 class WineSerializer < ActiveModel::Serializer
-  attributes :name, :kind, :country, :maker, :color, :body, :aroma, :score
+  attributes :name, :kind, :country, :maker, :wine_variety_name
+
+  def wine_variety_name
+    object.wine_variety.name
+  end
 end

@@ -34,7 +34,7 @@ module Api
     end
 
     def wine_params
-      params.permit([:name, :kind, :country, :maker, :color, :body, :aroma, :score])
+      params.permit([:name, :wine_variety_id, :kind, :country, :maker])
     end
   end
 end

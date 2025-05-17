@@ -22,4 +22,6 @@
 class Wine < ApplicationRecord
   belongs_to :wine_variety
   has_many :wine_reviews
+
+  enum kind: { white: 1, red: 2, sparkling: 3, rose: 4, orange: 5 }
 end
